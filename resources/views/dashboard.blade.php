@@ -6,12 +6,12 @@
     </x-slot>
 
     <div class="py-12">
-        @if(!$videos)
+        @if(count($videos) == 0)
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-6">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
                     <div class="p-6 bg-white border-b border-gray-200">
-                        <a href="{{route('upload')}}">Click here</a> to upload some videos.
+                        <a class="font-light text-md text-blue-600 underline font-semibold hover:text-indigo-800" href="{{route('upload')}}">Click here</a> to upload some videos.
                     </div>
                 </div>
             </div>
