@@ -25,7 +25,7 @@ class UploadVideoRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'file' => 'required',
+            'file' => 'required|file|mimetypes:video/mp4',
         ];
     }
 }
