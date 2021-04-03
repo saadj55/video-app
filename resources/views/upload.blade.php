@@ -7,15 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-6">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+
             <form method="POST" action="{{ url('store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="flex flex-col mb-4">
@@ -34,6 +26,20 @@
                     Upload
                 </button>
             </form>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li class="mb-1">
+                                <div class="inline-flex items-center bg-white leading-none text-pink-600 rounded-full p-2 shadow text-teal text-sm">
+                                    <span class="inline-flex bg-red-600 text-white rounded-full h-6 px-3 justify-center items-center">Error</span>
+                                    <span class="inline-flex px-2">{{ $error }}</span>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
     </div>
 </x-app-layout>
