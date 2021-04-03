@@ -17,7 +17,7 @@ class VideosController extends Controller
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function index(){
-        $videos = Videos::orderBy('created_at','desc')->paginate(config('videp.per_page'));
+        $videos = Videos::orderBy('created_at','desc')->paginate(config('video.per_page'));
         return view('dashboard', ['videos' => $videos]);
     }
     public function upload(){
