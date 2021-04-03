@@ -21,7 +21,7 @@
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
                         <div class="p-6 bg-white border-b border-gray-200">
-                                {{$video->title}} || Convert Status --> {{$video->convert_status == 0 ? 'In progress' : 'Converted'}}
+                                <h4>{{$video->title}} <span class="badge {{$video->convert_status == 0 ? 'bg-warning' : 'bg-success'}}">{{$video->convert_status == 0 ? 'Conversion In Progress' : 'Converted'}}</span> </h4>
                             <video width="{{$video->videoMeta->width}}" height="{{$video->videoMeta->height}}" poster="{{url('storage/thumbnails/' .$video->thumbnail)}}" controls>
                                 <source src="{{url('storage/uploads/' . $video->filename)}}" type="video/mp4">
                                 Your browser does not support the video tag.
@@ -31,5 +31,8 @@
                 </div>
             @endforeach
         @endif
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-6">
+                {{ $videos->links() }}
+            </div>
     </div>
 </x-app-layout>
