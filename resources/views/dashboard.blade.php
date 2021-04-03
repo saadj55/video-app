@@ -21,7 +21,7 @@
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
                         <div class="p-6 bg-white border-b border-gray-200">
-                                <h4>{{$video->title}} <span class="badge {{$video->convert_status == 0 ? 'bg-warning' : 'bg-success'}}">{{$video->convert_status == 0 ? 'Conversion In Progress' : 'Converted'}}</span> </h4>
+                                <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">{{$video->title}} <span class="inline-block rounded-full text-white px-2 py-1 text-xs font-bold mb-3 mr-3 {{$video->convert_status == 0 ? 'bg-yellow-500' : 'bg-green-500'}}">{{$video->convert_status == 0 ? 'Conversion In Progress' : 'Converted'}}</span></h2>
                             <video width="{{$video->videoMeta->width}}" height="{{$video->videoMeta->height}}" poster="{{url('storage/thumbnails/' .$video->thumbnail)}}" controls>
                                 <source src="{{url('storage/uploads/' . $video->filename)}}" type="video/mp4">
                                 Your browser does not support the video tag.
